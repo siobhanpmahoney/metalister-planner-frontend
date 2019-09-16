@@ -16,7 +16,9 @@ export const fetchTopics = () => {
     method: 'GET',
     headers: headers()
   })
-  .then(results => results.json())
+  .then(results => {
+    return results.json()
+  })
 }
 
 export const createTopic = (data) => {

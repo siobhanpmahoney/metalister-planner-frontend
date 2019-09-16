@@ -20,8 +20,9 @@ export const CREATE_TAG = 'CREATE_TAG'
 
 export function fetchTopicsAction() {
   return(dispatch) => {
-    return fetchTopics()
+    fetchTopics()
     .then(json => {
+      console.log(json)
       dispatch({
         type: SET_TOPICS,
         payload: json

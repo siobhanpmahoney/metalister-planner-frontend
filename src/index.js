@@ -9,7 +9,6 @@ import { BrowserRouter as Router } from 'react-router-dom'
 import App from './App';
 import reducers from './reducers';
 import * as Actions from './actions'
-import './index.css';
 import * as serviceWorker from './serviceWorker';
 
 const store = createStore(

@@ -4,17 +4,9 @@ import {withRouter} from 'react-router'
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import ReactTable, {
-    TableProps as ReactTableProps,
-    SortingRule,
-    Column,
-    FinalState,
-    Instance,
-    RowInfo,
-    ReactTableDefaults
-} from 'react-table';
-
 import {fetchTopicsAction, createTopicAction} from '../../actions'
+
+import TopicSummaryList from './TopicSummaryList'
 
 
 class TopicSummaryContainer extends React.Component {
@@ -22,7 +14,9 @@ class TopicSummaryContainer extends React.Component {
     super(props)
 
     this.state = {
-      expandedTopic: null // the topic appearing in side drawer
+      expandedTopic: null, // the topic appearing in side drawer,
+      isLoading: false, //to load if loading
+      topics: null
     }
   }
 
@@ -33,11 +27,23 @@ class TopicSummaryContainer extends React.Component {
 
 
   render() {
-    return (
-      <div>
-        TOPIC LIST
-      </div>
-    )
+    if (!!this.props.topics && this.props.topics.length > 0) {
+      console.log(this.props)
+      return (
+        <div>
+          <ol>
+            <TopicSummaryList topics={this.props.topics} />
+          </ol>
+        </div>
+      )
+    } else {
+        return (
+          <div>
+            Loading...
+          </div>
+        )
+    }
+
   }
 }
 

@@ -23,7 +23,7 @@ export function fetchTopicsAction() {
     fetchTopics()
     .then(json => {
       console.log(json)
-      dispatch({
+      return dispatch({
         type: SET_TOPICS,
         payload: json
       })

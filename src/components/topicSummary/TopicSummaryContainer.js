@@ -28,9 +28,8 @@ class TopicSummaryContainer extends React.Component {
 
   render() {
     if (!!this.props.topics && this.props.topics.length > 0) {
-      console.log(this.props)
       return (
-        <div>
+        <div className="topic-summary-container">
           <ol>
             <TopicSummaryList topics={this.props.topics} />
           </ol>

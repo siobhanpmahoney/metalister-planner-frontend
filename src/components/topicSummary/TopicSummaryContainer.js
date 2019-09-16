@@ -4,6 +4,16 @@ import {withRouter} from 'react-router'
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
+import ReactTable, {
+    TableProps as ReactTableProps,
+    SortingRule,
+    Column,
+    FinalState,
+    Instance,
+    RowInfo,
+    ReactTableDefaults
+} from 'react-table';
+
 import {fetchTopicsAction, createTopicAction} from '../../actions'
 
 
@@ -19,6 +29,8 @@ class TopicSummaryContainer extends React.Component {
   componentDidMount() {
     this.props.fetchTopicsAction()
   }
+
+
 
   render() {
     return (
